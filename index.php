@@ -1,4 +1,3 @@
-<!-- client vào index gọi controller(bồi bàn) -->
 <?php
 
-include 'controller.php';
+require_once 'controller.php';
