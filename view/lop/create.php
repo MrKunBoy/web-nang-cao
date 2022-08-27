@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/demo2.css" />
-    <title>Cập nhật sinh viên</title>
+    <title>Thêm lớp sinh hoạt</title>
     <style>
         html {
             height: 100%;
@@ -96,27 +96,18 @@
 <body>
     <div class="main">
         <div class="main-chil">
-            <form action="?action=update" method="post">
+            <form action="?controller=lop&action=store" method="post">
                 <div class="form-top m-bt-2">
-                    <h1>Cập nhật sinh viên</h1>
+                    <h1>Thêm lớp sinh hoạt</h1>
                 </div>
                 <div class="form-center m-bt-2">
-                    <input type="hidden" name="id" value="<?php echo $id ?>">
-                    <div class="m-bt-5">
-                        <label>Tên sinh viên:</label>
-                        <input class="ip_text" type="text" name="name" value="<?php echo $each['ten_sv'] ?>" required />
-                    </div>
                     <div class="m-bt-5">
                         <label>Lớp sinh hoạt:</label>
-                        <input class="ip_text" type="text" name="class" value="<?php echo $each['lop_sh'] ?>" required />
+                        <input class="ip_text" type="text" name="name_class" required />
                     </div>
-                    <div class="m-bt-5">
-                        <label>Ngày sinh:</label>
-                        <input class="ip_text" type="date" name="date" value="<?php echo $each['ngay_sinh'] ?>" required />
-                    </div>
-                    
+
                     <label for=""></label>
-                    <input class="ip_sm" type="submit" value="Cập nhật">
+                    <input class="ip_sm" type="submit" value="Thêm">
                 </div>
 
             </form>

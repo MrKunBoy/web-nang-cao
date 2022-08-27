@@ -70,7 +70,7 @@
 </html>
 <h1>Danh sách sinh viên</h1>
 
-<a class="create" href="?action=create">Thêm sinh viên</a>
+<a class="create" href="?controller=sinh_vien&action=create">Thêm sinh viên</a>
 
 <table id="customers">
     <tr>
@@ -99,14 +99,14 @@
                 <?php echo $each['ten_sv'] ?>
             </td>
             <td>
-                <?php echo $each['lop_sh'] ?>
+                <?php echo $each['ma_lop'] ?>
             </td>
             <td>
                 <?php echo $each['ngay_sinh'] ?>
             </td>
             <td>
-                <a class=update" href="?action=show&id=<?php echo $each['id'] ?>">Update</a>&nbsp;
-                <a class="delete" href="?action=delete&id=<?php echo $each['id'] ?>">Delete</a>
+                <a class=update" href="?controller=sinh_vien&action=edit&id=<?php echo $each['id'] ?>">Update</a>&nbsp;
+                <a class="delete" href="?controller=sinh_vien&action=delete&id=<?php echo $each['id'] ?>">Delete</a>
             </td>
         </tr>
 
