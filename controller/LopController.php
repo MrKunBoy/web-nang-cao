@@ -3,6 +3,7 @@
 switch($action){
     case '':
         require_once 'model/Lop.php';
+        $result = lop_index();
         require_once 'view/lop/index.php';
         break;
     case 'create':
@@ -11,24 +12,29 @@ switch($action){
     case 'store':
         $class = $_POST['name_class'];
         require_once 'model/Lop.php';
-        header('location:?controller=lop');
+        lop_store($class);
+        header('location:index.php?controller=lop');
         break;
     case 'update':
         $id = $_POST['id'];
         $class = $_POST['name_class'];
         require_once 'model/Lop.php';
-        header('location:?controller=lop');
+        lop_update($class, $id);
+        header('location:index.php?controller=lop');
         break;
     case 'edit':
         $id = $_GET['id'];
         require_once 'model/Lop.php';
+        $each = lop_edit($id);
         require_once 'view/lop/update.php';
         break;
     case 'delete':
         $id = $_GET['id'];
         require_once 'model/Lop.php';
-        header('location:?controller=lop');
+        lop_delete($id);
+        header('location:index.php?controller=lop');
         break;
     default:
         echo 'Sai controller lớp rồi';
+        break;
 }

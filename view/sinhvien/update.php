@@ -32,21 +32,27 @@
             margin-top: 10px;
             width: 250px;
             background-color: rgb(255, 153, 0);
-            border: 1px solid rgb(255, 123, 0);
+            border: 2px solid rgb(255, 123, 0);
             font-size: 16px;
             padding-top: 5px;
             padding-bottom: 5px;
             border-radius: 2px;
             color: white;
-            /* font-weight: bold; */
+            font-weight: 550;
         }
 
-        .ip_text {
+        .ip_text, .select {
             width: 250px;
             font-size: 16px;
             color: blue;
             padding-top: 5px;
             padding-bottom: 5px;
+        }
+
+        .select {
+            border: 1px solid rgb(118, 118, 118);
+            border-radius: 3px;
+            width: 258px;
         }
 
         h1 {
@@ -108,7 +114,13 @@
                     </div>
                     <div class="m-bt-5">
                         <label>Lớp sinh hoạt:</label>
-                        <input class="ip_text" type="text" name="class" value="<?php echo $each['ma_lop'] ?>" required />
+                        <select name="class" class="select">
+                            <?php foreach($lops as $lop){ ?>
+                            <option value="<?php echo $lop['id'] ?>" <?php if($lop['id'] == $each['ma_lop']) echo "selected" ?>>
+                                <?php echo $lop['ten_lop'] ?>
+                            </option>
+                            <?php } ?>
+                        </select>
                     </div>
                     <div class="m-bt-5">
                         <label>Ngày sinh:</label>

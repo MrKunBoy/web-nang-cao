@@ -99,7 +99,7 @@
                 <?php echo $each['ten_sv'] ?>
             </td>
             <td>
-                <?php echo $each['ma_lop'] ?>
+                <?php echo $each['ten_lop'] ?>
             </td>
             <td>
                 <?php echo $each['ngay_sinh'] ?>
