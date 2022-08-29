@@ -41,7 +41,8 @@
             font-weight: 550;
         }
 
-        .ip_text, .select {
+        .ip_text,
+        .select {
             width: 250px;
             font-size: 16px;
             color: blue;
@@ -107,26 +108,26 @@
                     <h1>Cập nhật sinh viên</h1>
                 </div>
                 <div class="form-center m-bt-2">
-                    <input type="hidden" name="id" value="<?php echo $id ?>">
+                    <input type="hidden" name="id" value="<?php echo $each->getId() ?>">
                     <div class="m-bt-5">
                         <label>Tên sinh viên:</label>
-                        <input class="ip_text" type="text" name="name" value="<?php echo $each['ten_sv'] ?>" required />
+                        <input class="ip_text" type="text" name="ten_sv" value="<?php echo $each->getTen_sv() ?>" required />
                     </div>
                     <div class="m-bt-5">
                         <label>Lớp sinh hoạt:</label>
-                        <select name="class" class="select">
-                            <?php foreach($lops as $lop){ ?>
-                            <option value="<?php echo $lop['id'] ?>" <?php if($lop['id'] == $each['ma_lop']) echo "selected" ?>>
-                                <?php echo $lop['ten_lop'] ?>
-                            </option>
+                        <select name="ma_lop" class="select">
+                            <?php foreach ($lops as $lop) { ?>
+                                <option value="<?php echo $lop->getId() ?>" <?php if ($lop->getId() == $each->getMa_lop()) echo "selected" ?>>
+                                    <?php echo $lop->getTen_lop() ?>
+                                </option>
                             <?php } ?>
                         </select>
                     </div>
                     <div class="m-bt-5">
                         <label>Ngày sinh:</label>
-                        <input class="ip_text" type="date" name="date" value="<?php echo $each['ngay_sinh'] ?>" required />
+                        <input class="ip_text" type="date" name="ngay_sinh" value="<?php echo $each->getNgay_sinh() ?>" required />
                     </div>
-                    
+
                     <label for=""></label>
                     <input class="ip_sm" type="submit" value="Cập nhật">
                 </div>

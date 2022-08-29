@@ -48,15 +48,24 @@
         }
 
         .create {
-            padding: 10px 10px;
-            margin-bottom: 10px;
+            padding: 10px 20px;
             display: block;
             background-color: #0081B3;
             color: #ffffff;
             border-radius: 5px;
-            width: 10%;
             text-align: center;
         }
+
+        .menu {
+            padding: 10px 20px;
+            display: block;
+            background-color: #0081B3;
+            color: #ffffff;
+            border-radius: 5px;
+            text-align: center;
+            margin-right: 10px;
+        }
+
         h1 {
             text-align: center;
         }
@@ -69,9 +78,10 @@
 
 </html>
 <h1>Danh sách sinh viên</h1>
-
-<a class="create" href="?controller=sinh_vien&action=create">Thêm sinh viên</a>
-
+<div style="display: flex; margin-bottom: 10px;">
+    <a class="menu" href="?controller=base">Menu</a>
+    <a class="create" href="?controller=sinh_vien&action=create">Thêm sinh viên</a>
+</div>
 <table id="customers">
     <tr>
         <th>
@@ -93,20 +103,20 @@
     <?php foreach ($result as $each) { ?>
         <tr>
             <td>
-                <?php echo $each['id'] ?>
+                <?php echo $each->getId() ?>
             </td>
             <td>
-                <?php echo $each['ten_sv'] ?>
+                <?php echo $each->getTen_sv() ?>
             </td>
             <td>
-                <?php echo $each['ten_lop'] ?>
+                <?php echo $each->getTen_lop() ?>
             </td>
             <td>
-                <?php echo $each['ngay_sinh'] ?>
+                <?php echo $each->getNgay_sinh() ?>
             </td>
             <td>
-                <a class=update" href="?controller=sinh_vien&action=edit&id=<?php echo $each['id'] ?>">Update</a>&nbsp;
-                <a class="delete" href="?controller=sinh_vien&action=delete&id=<?php echo $each['id'] ?>">Delete</a>
+                <a class="update" href="?controller=sinh_vien&action=edit&id=<?php echo $each->getId() ?>">Update</a>&nbsp;
+                <a class="delete" href="?controller=sinh_vien&action=delete&id=<?php echo $each->getId() ?>">Delete</a>
             </td>
         </tr>
 

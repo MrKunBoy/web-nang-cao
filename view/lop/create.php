@@ -103,7 +103,7 @@
                 <div class="form-center m-bt-2">
                     <div class="m-bt-5">
                         <label>Lớp sinh hoạt:</label>
-                        <input class="ip_text" type="text" name="name_class" required />
+                        <input class="ip_text" type="text" name="ten_lop" required />
                     </div>
 
                     <label for=""></label>

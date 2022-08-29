@@ -101,10 +101,10 @@
                     <h1>Cập nhật lớp sinh hoạt</h1>
                 </div>
                 <div class="form-center m-bt-2">
-                    <input value="<?php echo $each['id'] ?>" type="hidden" name="id">
+                    <input value="<?php echo $each->getId() ?>" type="hidden" name="id">
                     <div class="m-bt-5">
                         <label>Lớp sinh hoạt:</label>
-                        <input class="ip_text" type="text" name="name_class" value="<?php echo $each['ten_lop'] ?>" required />
+                        <input class="ip_text" type="text" name="ten_lop" value="<?php echo $each->getTen_lop() ?>" required />
                     </div>
 
                     <label for=""></label>

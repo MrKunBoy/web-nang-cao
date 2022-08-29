@@ -109,19 +109,19 @@
                 <div class="form-center m-bt-2">
                     <div class="m-bt-5">
                         <label>Tên sinh viên:</label>
-                        <input class="ip_text" type="text" name="name" required />
+                        <input class="ip_text" type="text" name="ten_sv" required />
                     </div>
                     <div class="m-bt-5">
                         <label>Lớp sinh hoạt:</label>
-                        <select name="class" class="select">
+                        <select name="ma_lop" class="select">
                             <?php foreach($lops as $lop){ ?>
-                            <option value="<?php echo $lop['id'] ?>"><?php echo $lop['ten_lop'] ?></option>
+                            <option value="<?php echo $lop->getId() ?>"><?php echo $lop->getTen_lop() ?></option>
                             <?php } ?>
                         </select>
                     </div>
                     <div class="m-bt-5">
                         <label>Ngày sinh:</label>
-                        <input class="ip_text" type="date" name="date" required />
+                        <input class="ip_text" type="date" name="ngay_sinh" required />
                     </div>
 
                     <label for=""></label>

@@ -48,15 +48,24 @@
         }
 
         .create {
-            padding: 10px 10px;
-            margin-bottom: 10px;
+            padding: 10px 20px;
             display: block;
             background-color: #0081B3;
             color: #ffffff;
             border-radius: 5px;
-            width: 10%;
             text-align: center;
         }
+
+        .menu {
+            padding: 10px 20px;
+            display: block;
+            background-color: #0081B3;
+            color: #ffffff;
+            border-radius: 5px;
+            text-align: center;
+            margin-right: 10px;
+        }
+
         h1 {
             text-align: center;
         }
@@ -69,8 +78,11 @@
 
 </html>
 <h1>Danh sách lớp</h1>
+<div style="display: flex; margin-bottom: 10px;">
+    <a class="menu" href="?controller=base">Menu</a>
+    <a class="create" href="?controller=lop&action=create">Thêm lớp sinh hoạt</a>
+</div>
 
-<a class="create" href="?controller=lop&action=create">Thêm lớp sinh hoạt</a>
 
 <table id="customers">
     <tr>
@@ -84,17 +96,17 @@
             Thao tác
         </th>
     </tr>
-    <?php foreach ($result as $each) { ?>
+    <?php foreach ($arr as $each) { ?>
         <tr>
             <td>
-                <?php echo $each['id'] ?>
+                <?php echo $each->showId() ?>
             </td>
             <td>
-                <?php echo $each['ten_lop'] ?>
+                <?php echo $each->getTen_lop() ?>
             </td>
             <td>
-                <a class=update" href="?controller=lop&action=edit&id=<?php echo $each['id'] ?>">Update</a>&nbsp;
-                <a class="delete" href="?controller=lop&action=delete&id=<?php echo $each['id'] ?>">Delete</a>
+                <a class="update" href="?controller=lop&action=edit&id=<?php echo $each->getId() ?>">Update</a>&nbsp;
+                <a class="delete" href="?controller=lop&action=delete&id=<?php echo $each->getId() ?>">Delete</a>
             </td>
         </tr>
 

@@ -1,47 +1,78 @@
 <?php
 
-switch($action){
-    case '':
+class SinhVienController
+{
+    public function index()
+    {
         require_once 'model/SinhVien.php';
-        $result = sinh_vien_index();
+        $result = (new SinhVien())->all();
         require_once 'view/sinhvien/index.php';
-        break;
-    case 'create':
+    }
+
+    public function create()
+    {
         require_once 'model/Lop.php';
-        $lops = lop_index();
+        $lops = (new Lop())->all();
         require_once 'view/sinhvien/create.php';
-        break;
-    case 'store':
-        $ten = $_POST['name'];
-        $ma_lop = $_POST['class'];
-        $ngay_sinh = $_POST['date'];
+    }
+
+    public function store()
+    {
         require_once 'model/SinhVien.php';
-        sinh_vien_store($ten,$ma_lop,$ngay_sinh);
+        (new SinhVien())->create($_POST);
         header('location:index.php?controller=sinh_vien');
-        break;
-    case 'update':
-        $id = $_POST['id'];
-        $ten = $_POST['name'];
-        $ma_lop = $_POST['class'];
-        $ngay_sinh = $_POST['date'];
-        require_once 'model/SinhVien.php';
-        sinh_vien_update($id,$ten,$ma_lop,$ngay_sinh);
-        header('location:index.php?controller=sinh_vien');
-        break;
-    case 'edit':
+    }
+
+    public function edit()
+    {
         $id = $_GET['id'];
+        require_once 'model/SinhVien.php';
+        $each = (new SinhVien())->find($id);
         require_once 'model/Lop.php';
-        $lops = lop_index();
-        require_once 'model/SinhVien.php';
-        $each = sinh_vien_edit($id);
+        $lops = (new Lop())->all();
         require_once 'view/sinhvien/update.php';
-        break;
-    case 'delete':
+    }
+
+    public function update()
+    {
+        require_once 'model/SinhVien.php';
+        (new SinhVien())->update($_POST);
+        header('location:index.php?controller=sinh_vien');
+    }
+
+    public function delete()
+    {
         $id = $_GET['id'];
         require_once 'model/SinhVien.php';
-        sinh_vien_delete($id);
+        (new SinhVien())->destroy($id);
         header('location:index.php?controller=sinh_vien');
-        break;
-    default:
-        echo 'Sai controller sinh viên rồi';
+    }
 }
+
+
+//     case 'update':
+//         $id = $_POST['id'];
+//         $ten = $_POST['name'];
+//         $ma_lop = $_POST['class'];
+//         $ngay_sinh = $_POST['date'];
+//         require_once 'model/SinhVien.php';
+//         sinh_vien_update($id,$ten,$ma_lop,$ngay_sinh);
+//         header('location:index.php?controller=sinh_vien');
+//         break;
+//     case 'edit':
+//         $id = $_GET['id'];
+//         require_once 'model/Lop.php';
+//         $lops = lop_index();
+//         require_once 'model/SinhVien.php';
+//         $each = sinh_vien_edit($id);
+//         require_once 'view/sinhvien/update.php';
+//         break;
+//     case 'delete':
+//         $id = $_GET['id'];
+//         require_once 'model/SinhVien.php';
+//         sinh_vien_delete($id);
+//         header('location:index.php?controller=sinh_vien');
+//         break;
+//     default:
+//         echo 'Sai controller sinh viên rồi';
+// }
